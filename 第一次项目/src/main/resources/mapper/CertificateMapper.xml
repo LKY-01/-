@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.demo.mapper.CertificateMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="Certificate" type="com.project.demo.Bean.Certificate">
+        <id column="CERT_ID" property="cert_id" jdbcType="INTEGER"/>
+        <result column="CERT_USER_ID" property="cret_user_id" jdbcType="INTEGER"/>
+        <result column="CERT_TYPE" property="cret_type" jdbcType="VARCHAR"/>
+        <result column="CERT_NAME" property="cert_name" jdbcType="VARCHAR"/>
+        <result column="CERT_IMG" property="cert_img" jdbcType="VARCHAR"/>
+        <result column="IS_DELETE" property="is_delete" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="selectByCertid" resultMap="Certificate">
+        select * from certificate where CERT_ID=#{cert_id}
+    </select>
+
+    <select id="deleteByCertid" >
+        delete from certificate where CERT_ID=#{cert_id}
+    </select>
+
+    <insert id="addBycert_id" parameterType="com.project.demo.Bean.Certificate">
+        insert into certificate(CERT_ID,CERT_USER_ID,CERT_TYPE,CERT_NAME,CERT_IMG,IS_DELETE)
+                    values (#{cert_id},#{cret_user_id},#{cret_type},#{cert_name},#{cert_img},#{is_delete})
+    </insert>
+</mapper>
