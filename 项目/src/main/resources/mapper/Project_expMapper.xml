@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.demo.mapper.Project_expMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="Project_exp" type="com.project.demo.Bean.Project_exp">
+        <id column="PROJECT_EXP_ID" property="project_exp_id"/>
+        <result column="PROJECT_EXP_USER_ID" property="project_exp_user_id"/>
+        <result column="PROJECT_EXP_NAME" property="project_exp_name"/>
+        <result column="PROJECT_EXP_ROLE" property="project_exp_role"/>
+        <result column="PROJECT_EXP_URL" property="project_exp_url"/>
+        <result column="PROJECT_EXP_BEGIN" property="Pproject_exp_begin"/>
+        <result column="PROJECT_EXP_END" property="project_exp_end"/>
+        <result column="PROJECT_EXP_DESCRIPBE" property="project_exp_descripbe"/>
+        <result column="IS_DELETE" property="is_delete"/>
+    </resultMap>
+
+    <select id="selectByproject_exp_id" resultMap="Project_exp">
+        select * from Project_exp where PROJECT_EXP_ID=#{project_exp_id}
+    </select>
+
+    <select id="deleteByproject_exp_id" >
+        delete from Project_exp where PROJECT_EXP_ID=#{project_exp_id}
+    </select>
+
+
+</mapper>

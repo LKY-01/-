@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.demo.mapper.Honer_expMapper">
+    <resultMap id="Honer_exp" type="com.project.demo.Bean.Honer_exp">
+        <id column="HONER_ID" jdbcType="INTEGER" property="honer_id" />
+        <result column="HONER_USER_ID" jdbcType="INTEGER" property="honer_user_id" />
+        <result column="HONER_DATE" jdbcType="DATE" property="honer_date" />
+        <result column="HONER_MATCH" jdbcType="VARCHAR" property="honer_match" />
+        <result column="HONER_RANK" jdbcType="VARCHAR" property="honer_rank" />
+        <result column="HONER_URL" jdbcType="VARCHAR" property="honer_url" />
+        <result column="IS_DELETE" jdbcType="INTEGER" property="is_delete" />
+    </resultMap>
+    <select id="selectByhoner_id" resultMap="Honer_exp">
+        select * from honer_exp where HONER_ID = #{honer_id}
+    </select>
+
+    <select id="deleteByhoner_id" >
+        delete from honer_exp where HONER_ID=#{honer_id}
+    </select>
+</mapper>
